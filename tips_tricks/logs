@@ -1,0 +1,7 @@
+
+2025-09-30 13:51:54,976 - ERROR - File does not exist: tes1t.txt
+2025-09-30 13:51:54,976 - INFO - Execution time: 0.0073 seconds
+2025-09-30 15:11:14,266 - INFO - Data is successfully written to output.txt
+2025-09-30 15:11:14,266 - INFO - Execution time: 0.0076 seconds
+2025-09-30 15:24:06,182 - INFO - Data is successfully written to output.txt
+2025-09-30 15:24:06,183 - INFO - Execution time: 0.0070 seconds
