@@ -1,0 +1,14 @@
+2025-10-08 12:44:06,956 - INFO - Data is successfully written to output.txt
+2025-10-08 12:44:06,957 - INFO - Execution time: 0.0072 seconds
+2025-10-08 12:44:37,562 - INFO - Data is successfully written to output.txt
+2025-10-08 12:44:37,562 - INFO - Execution time: 0.0083 seconds
+2025-10-08 13:10:27,782 - INFO - Data is successfully written to output.txt
+2025-10-08 13:10:27,782 - INFO - Execution time: 0.0077 seconds
+2025-10-08 13:11:16,001 - ERROR - File does not exist: test1.txt
+2025-10-08 13:11:16,001 - INFO - Execution time: 0.0067 seconds
+2025-10-08 13:11:29,022 - ERROR - File does not exist: test.txt
+2025-10-08 13:11:29,023 - INFO - Execution time: 0.0074 seconds
+2025-10-08 13:11:45,021 - INFO - Data is successfully written to output.txt
+2025-10-08 13:11:45,021 - INFO - Execution time: 0.0081 seconds
+2025-10-08 13:12:22,978 - INFO - Data is successfully written to output.txt
+2025-10-08 13:12:22,978 - INFO - Execution time: 0.0091 seconds
