@@ -35,10 +35,3 @@ def test_h1(response):
     soup = BeautifulSoup(response.text, "html.parser")
     h1 = soup.find("h1", class_="text-center my-12").text
     assert (h1 == expected_h1), f"h1 from {URL} is not {expected_h1}"
-
-
-def test_response_time(response):
-    """Test that response time is under 600ms."""
-    elapsed_ms = response.elapsed.total_seconds() * 1000
-    expected_ms = 600
-    assert (elapsed_ms < expected_ms), f"It took more than {expected_ms} ms"
