@@ -1,16 +1,18 @@
 """Listener that will make screenshots after executing every keyword with the tag 'screenshot'"""
 import os
 import re
+from typing import Any, Dict
 
+from robot.api import logger
 from robot.libraries.BuiltIn import BuiltIn
 
 ROBOT_LISTENER_API_VERSION = 2
 
-print("[Screenshot_Listener] File loaded")
+logger.info("[Screenshot_Listener] File loaded")
 
 OUTPUT_DIR = os.path.join(os.getcwd(), "screenshots")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-print(f"[Screenshot_Listener] Screenshots will be saved to: {OUTPUT_DIR}")
+logger.info(f"[Screenshot_Listener] Screenshots will be saved to: {OUTPUT_DIR}")
 
 
 def fix_filename(name: str) -> str:
@@ -26,7 +28,7 @@ def fix_filename(name: str) -> str:
     return re.sub(r'[^\w\-_.]', '_', name)
 
 
-def end_keyword(name, attrs):
+def end_keyword(name: str, attrs: Dict[str, Any]) -> None:
     """
     Called by Robot Framework after the execution of every keyword.
 
@@ -43,9 +45,9 @@ def end_keyword(name, attrs):
         try:
             seleniumlib = BuiltIn().get_library_instance("SeleniumLibrary")
             if seleniumlib:
-                print("[ScreenshotListener] SeleniumLibrary instance found.")
+                logger.info("[ScreenshotListener] SeleniumLibrary instance found.")
             else:
-                print("[ScreenshotListener] SeleniumLibrary instance NOT found!")
+                logger.error("[ScreenshotListener] SeleniumLibrary instance NOT found!")
 
             test_name = BuiltIn().get_variable_value("${TEST NAME}")
             safe_test_name = fix_filename(test_name)
@@ -55,7 +57,7 @@ def end_keyword(name, attrs):
                 f"{safe_test_name}_{safe_keyword_name}.png"
             )
             seleniumlib.capture_page_screenshot(screenshot_path)
-            print(f"[ScreenshotListener] Screenshot saved: {screenshot_path}")
+            logger.info(f"[ScreenshotListener] Screenshot saved: {screenshot_path}")
 
         except Exception as e:
-            print(f"[ScreenshotListener ERROR] {e}")
+            logger.error(f"[ScreenshotListener ERROR] {e}")
